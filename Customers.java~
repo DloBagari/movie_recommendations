@@ -1,0 +1,23 @@
+import java.util.*;
+public  class Customers{
+    private Map<Integer, Customer> structure = new HashMap<>();
+    public Customers(String filename){
+        Read_File file = new Read_File(filename);
+        Iterator<String[]> iter = file.iterator();
+        while (iter.hasNext()){
+             String[] customer = iter.next();
+             int id = Integer.parseInt(customer[0]);
+              Customer c = new Customer(id, customer[1]);
+              structure.put(id, c);
+         }
+    }
+    
+    public Customer getCustomer(int id){
+        return structure.get(id);
+    }
+    
+    public Collection<Customer> values(){
+        return structure.values();
+    }
+}//end Movies class
+                       

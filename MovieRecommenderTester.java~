@@ -1,0 +1,15 @@
+import java.util.*;
+public class MovieRecommenderTester{
+    public static void main(String[] args){
+        Movies movies  = new Movies("m2.txt");
+        Customers customers = new Customers("c.txt");
+        Rates rates = new Rates("r.txt", movies, customers);
+        Recommender recommender =  new Recommender(movies, customers);
+        Collection<Customer> customersList = customers.values();
+        Collection<Movie> moviesList = movies.values();
+        for (Customer c: customersList){
+            recommender.recommend(c);
+        }
+        
+     }
+}
